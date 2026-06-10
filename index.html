@@ -37,12 +37,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","s3t9vl8h3v");</script>
     <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
+    <!-- Chart.js for visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"フリーランス単価計算ツール","description":"希望年収・稼働日数・経費から適正な時間単価・月額単価を逆算。登録不要・完全無料でご利用いただけます。","url":"https://appadaycreator.com/freelance-rate-calculator/","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"author":{"@type":"Organization","name":"AppADayCreator","url":"https://appadaycreator.com/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "フリーランス単価計算ツールは無料で使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、完全無料・登録不要でご利用いただけます。"}}, {"@type": "Question", "name": "何回でも使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、回数制限なく何度でもご利用いただけます。"}}, {"@type": "Question", "name": "入力したデータはサーバーに送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべての処理はブラウザ内で完結し、入力内容はサーバーへ送信されません。"}}, {"@type": "Question", "name": "スマートフォンでも使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、スマートフォン・タブレット・PCすべてに最適化されています。"}}, {"@type": "Question", "name": "結果を保存・共有できますか？", "acceptedAnswer": {"@type": "Answer", "text": "スクリーンショットでの保存またはSNSシェアボタンからご共有いただけます。"}}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"フリーランス単価計算ツール【無料】簡単・無料計算の使い方","step":[{"@type":"HowToStep","position":1,"name":"必要事項を入力する","text":"フォームに必要な情報（数値・選択肢・条件）を入力または選択する"},{"@type":"HowToStep","position":2,"name":"診断・計算を実行する","text":"「診断する」「計算する」または「確認する」ボタンを押して結果を取得する"},{"@type":"HowToStep","position":3,"name":"結果・分析を確認する","text":"表示された診断結果・計算結果・グラフをじっくり確認する"},{"@type":"HowToStep","position":4,"name":"アドバイスを活用する","text":"結果に基づくアドバイスや提案を日常生活に取り入れる"},{"@type":"HowToStep","position":5,"name":"定期的に再チェックする","text":"生活変化に応じて定期的に再診断して進捗を追跡する"}]}</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background: linear-gradient(135deg, #CFFAFE 0%, #F0FDFA 100%); min-height: 100vh; color: #333; line-height: 1.6; }
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background: #f8fafc; min-height: 100vh; color: #333; line-height: 1.6; }
         .site-header { background: #0891B2; color: white; padding: 32px 20px; text-align: center; }
         .site-header .emoji { font-size: 52px; margin-bottom: 8px; }
         .site-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
@@ -55,6 +57,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
         .btn:focus-visible { outline: 3px solid #0891B2; outline-offset: 3px; }
         input, select, textarea { width: 100%; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 15px; margin-top: 4px; font-family: inherit; min-height: 44px; }
         input:focus, select:focus, textarea:focus { outline: none; border-color: #0891B2; box-shadow: 0 0 0 3px #0891B222; }
+        input[type="range"] { width: 100%; height: 6px; border-radius: 5px; background: #e2e8f0; outline: none; -webkit-appearance: none; padding: 0; margin-top: 8px; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #0891B2; cursor: pointer; box-shadow: 0 2px 6px rgba(8,145,178,.3); }
+        input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #0891B2; cursor: pointer; border: none; box-shadow: 0 2px 6px rgba(8,145,178,.3); }
+        input[type="range"]:focus { box-shadow: 0 0 0 3px #0891B222; }
+        .help-icon { display: inline-block; width: 18px; height: 18px; line-height: 18px; text-align: center; background: #f0fdfa; color: #0891B2; border-radius: 50%; font-size: 12px; font-weight: bold; cursor: help; margin-left: 4px; vertical-align: text-top; }
+        .range-input { width: 100%; }
         label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-top: 14px; margin-bottom: 2px; }
         .result { display: none; }
         .result.show { display: block; }
@@ -129,21 +137,86 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
           color: #0e4f5e;
           margin-top: 12px;
         }
-    
+        .quick-preset-btn {
+          background: #f0fdfa;
+          color: #0891B2;
+          border: 2px solid #0891B2;
+          border-radius: 8px;
+          padding: 12px 16px;
+          font-size: 13px;
+          font-weight: 600;
+          cursor: pointer;
+          min-height: 44px;
+          transition: all .2s;
+        }
+        .quick-preset-btn:hover {
+          background: #0891B2;
+          color: white;
+        }
+        .quick-preset-btn:focus-visible {
+          outline: 3px solid #0891B2;
+          outline-offset: 2px;
+        }
+        .detail-toggle-btn {
+          background: white;
+          border: 1.5px solid #0891B2;
+          color: #0891B2;
+          padding: 10px 16px;
+          border-radius: 8px;
+          font-size: 13px;
+          font-weight: 600;
+          cursor: pointer;
+          min-height: 44px;
+          transition: all .2s;
+          width: 100%;
+        }
+        .detail-toggle-btn:hover {
+          background: #f0fdfa;
+        }
+        .detail-toggle-btn:focus-visible {
+          outline: 3px solid #0891B2;
+          outline-offset: 2px;
+        }
+        input:focus-visible, select:focus-visible {
+          outline: 3px solid #0891B2;
+          outline-offset: 2px;
+        }
+        @media (max-width: 640px) {
+          .quick-preset-btn {
+            padding: 10px 12px;
+            font-size: 12px;
+          }
+          .result-grid {
+            grid-template-columns: 1fr;
+          }
+          .result-item {
+            padding: 12px 10px;
+          }
+        }
+
 @media print{
   header,footer,nav,button,.no-print,
   [class*="share"],[class*="affiliate"],[id*="share"],
   [id*="affiliate"],[id*="banner"],
-  script,noscript{display:none!important}
-  body{background:#fff!important;color:#000!important;font-size:12pt}
+  script,noscript,ins{display:none!important}
+  body{background:#fff!important;color:#000!important;font-size:11pt;margin:0}
+  .container{max-width:100%;margin:0;padding:10pt}
+  .card{box-shadow:none!important;border:1px solid #ddd;page-break-inside:avoid}
   [id*="result"],[id*="output"],[id*="advice"],[id*="diagnosis"],[class*="result"]{display:block!important}
+  .result-grid{display:block!important}
+  .result-item{margin-bottom:10pt;padding:8pt;border:1px solid #eee}
   a[href]::after{content:none!important}
+  .detail-section{display:block!important}
+  h1,h2,h3{page-break-after:avoid}
+  .tip-box{border-left:3pt solid #000;padding:8pt}
 }
 
 /* AdSense unfilled: collapse empty ad slots */
 ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!important;height:0!important}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://appadaycreator.com/"},{"@type":"ListItem","position":2,"name":"計算機/お金","item":"https://appadaycreator.com/category/finance/"},{"@type":"ListItem","position":3,"name":"フリーランス単価計算ツール簡単・無料計算","item":"https://appadaycreator.com/freelance-rate-calculator/"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDPNYD2875"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZDPNYD2875',{send_page_view:false});</script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -155,26 +228,51 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         <h1>フリーランス単価計算ツール</h1>
         <p>希望年収・稼働日数・経費から適正な時間単価・月額単価を逆算。</p>
     </header>
+<div style="background:#4338ca;padding:5px 12px;text-align:right;font-size:.78rem"><a href="/blog/" style="color:#c7d2fe;text-decoration:none;font-weight:600">📖 コラム</a>&nbsp;｜&nbsp;<a href="/" style="color:#c7d2fe;text-decoration:none">ホーム</a></div>
+<!-- r21-breadcrumb -->
+<nav aria-label="パンくずリスト" style="background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:5px 16px;font-size:.78rem;color:#6b7280;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">
+  <a href="/" style="color:#4f46e5;text-decoration:none">ホーム</a>
+  <span style="margin:0 .35rem;color:#9ca3af">›</span>
+  <span style="color:#374151">フリーランス単価計算ツール【無料】簡単・無料計算</span>
+</nav>
+
 
     <main id="main-content" class="container" role="main" aria-label="フリーランス単価計算ツールのメインコンテンツ">
-        <ins class="adsbygoogle" style="display:block;min-height:0;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <ins class="adsbygoogle" style="display:block;min-height:90px;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
 
         <div class="card">
           <h2 style="font-size:18px;font-weight:700;margin-bottom:4px;">💰 フリーランス単価計算ツール</h2>
           <p style="color:#64748b;font-size:13px;margin-bottom:18px;">希望年収・稼働日数・経費から時間単価・月額単価を逆算します</p>
 
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+            <button class="quick-preset-btn" onclick="loadPreset(3000000)">300万円</button>
+            <button class="quick-preset-btn" onclick="loadPreset(5000000)">500万円</button>
+            <button class="quick-preset-btn" onclick="loadPreset(7000000)">700万円</button>
+            <button class="quick-preset-btn" onclick="loadPreset(10000000)">1000万円</button>
+          </div>
+
           <div class="input-group">
             <label>希望年収（税込）</label>
-            <input type="number" id="annual-income" placeholder="例: 6000000" min="0" step="100000">
+            <input type="number" id="annual-income" placeholder="例: 6000000" min="0" step="100000" aria-describedby="income-error">
+            <span id="income-error" class="error-msg" style="display:none;color:#dc2626;font-size:12px;margin-top:4px;"></span>
           </div>
           <div class="input-group">
-            <label>年間稼働日数（日）</label>
-            <input type="number" id="work-days" placeholder="例: 220" min="1" max="365" value="220">
+            <label for="work-days">年間稼働日数（日）<span class="help-icon" title="営業日ベース。年間240日前後が一般的です">?</span></label>
+            <input type="range" id="work-days" min="100" max="365" value="220" class="range-input" aria-describedby="work-days-value">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;margin-top:4px;">
+              <span id="work-days-value">220日</span>
+              <span>目安: <strong>220日</strong>（年間営業日数）</span>
+            </div>
+            <input type="number" id="work-days-number" placeholder="例: 220" min="1" max="365" value="220" style="display:none;">
           </div>
           <div class="input-group">
-            <label>1日の稼働時間（時間）</label>
-            <input type="number" id="work-hours" placeholder="例: 8" min="1" max="24" value="8">
+            <label for="work-hours">1日の稼働時間（時間）<span class="help-icon" title="営業時間ベース。通常は6-10時間が目安">?</span></label>
+            <input type="range" id="work-hours" min="4" max="12" value="8" class="range-input" aria-describedby="work-hours-value">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;margin-top:4px;">
+              <span id="work-hours-value">8時間</span>
+              <span>目安: <strong>8時間</strong></span>
+            </div>
           </div>
           <div class="input-group">
             <label>年間経費・諸費用（円）</label>
@@ -198,17 +296,17 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
               <div class="result-item">
                 <div class="label">時間単価</div>
                 <div class="value" id="hourly-rate">0</div>
-                <div class="unit">円 / 時間</div>
+                <div class="unit">円 <span class="sr-only">/ 時間</span></div>
               </div>
               <div class="result-item">
                 <div class="label">月額単価</div>
                 <div class="value" id="monthly-rate">0</div>
-                <div class="unit">円 / 月</div>
+                <div class="unit">円 <span class="sr-only">/ 月</span></div>
               </div>
               <div class="result-item">
                 <div class="label">日額単価</div>
                 <div class="value" id="daily-rate">0</div>
-                <div class="unit">円 / 日</div>
+                <div class="unit">円 <span class="sr-only">/ 日</span></div>
               </div>
               <div class="result-item">
                 <div class="label">手取り年収（概算）</div>
@@ -217,6 +315,29 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
               </div>
             </div>
             <div class="tip-box" id="tip-text"></div>
+            <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+              <button class="detail-toggle-btn" style="margin:0;" onclick="toggleDetails()" aria-expanded="false" aria-controls="detail-section">📊 詳細分析</button>
+              <button class="detail-toggle-btn" style="margin:0;" onclick="toggleChart()" aria-expanded="false" aria-controls="chart-container">📈 グラフ</button>
+              <button class="detail-toggle-btn" style="margin:0;" onclick="printResults()">🖨️ 印刷</button>
+            </div>
+            <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <button class="detail-toggle-btn" style="background:#2196F3;color:white;border-color:#2196F3;margin:0;" onclick="exportToCSV()">📥 CSVエクスポート</button>
+              <button class="detail-toggle-btn" style="margin:0;" onclick="copyResults()">📋 結果をコピー</button>
+            </div>
+            <div style="position:relative;height:300px;display:none;margin-top:12px;" id="chart-container" class="no-print">
+              <canvas id="rate-chart"></canvas>
+            </div>
+            <div id="detail-section" style="display:none;margin-top:12px;">
+              <div style="background:#f0f9ff;border-radius:8px;padding:12px;font-size:13px;color:#333;">
+                <p style="margin-bottom:8px;"><strong>計算根拠</strong></p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:#666;">
+                  <div>年間稼働時間: <strong id="detail-total-hours">0</strong>時間</div>
+                  <div>月間稼働日数: <strong id="detail-monthly-days">0</strong>日</div>
+                  <div>必要売上: <strong id="detail-required-revenue">0</strong>円</div>
+                  <div>実際の手取り: <strong id="detail-actual-net">0</strong>円</div>
+                </div>
+              </div>
+            </div>
             <div id="output" style="display:none;"></div>
             <p id="detail" style="display:none;"></p>
           </div>
@@ -227,7 +348,7 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
             <h3 style="font-size:13px;font-weight:600;color:#888;margin-bottom:10px;">🔗 関連サービス</h3>
             <div style="display:flex;flex-direction:column;gap:6px;">
                 <a href="https://appadaycreator.com/freelance-tax-advisor/" style="color:#7c3aed;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">フリーランス・個人事業主 税金診断 →</a>
-                <a href="https://appadaycreator.com/side-job-aptitude-test/" style="color:#7c3aed;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">Side Job Aptitude Test →</a>
+                <a href="https://appadaycreator.com/side-job-aptitude-test/lp/" style="color:#7c3aed;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">Side Job Aptitude Test →</a>
                 <a href="https://appadaycreator.com/sidejob-tax-simulator/" style="color:#7c3aed;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">Sidejob Tax Simulator →</a>
             </div>
         </div>
@@ -240,8 +361,8 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
             <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4B3WJA+7FZDKA+4EKW+NTJWY" alt="">
         </div>
 
-        <ins class="adsbygoogle" style="display:block;min-height:0;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <ins class="adsbygoogle" style="display:block;min-height:90px;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
 
         <!-- 使い方セクション -->
         <div class="card" style="margin-top:8px;background:#f8fafc;">
@@ -283,7 +404,7 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         </div>
 
         <!-- SNSシェアCTA -->
-        <div class="card" style="margin-top:8px;text-align:center;background:linear-gradient(135deg,#CFFAFE,#F0FDFA);" role="complementary" aria-label="SNSシェア">
+        <div class="card" style="margin-top:8px;text-align:center;background:#f0f9ff;" role="complementary" aria-label="SNSシェア">
             <p style="font-size:13px;font-weight:600;color:#374151;margin-bottom:10px;">📣 友人・家族にシェアする</p>
             <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
                 <a href="https://twitter.com/intent/tweet?text=%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9%E5%8D%98%E4%BE%A1%E8%A8%88%E7%AE%97%E3%83%84%E3%83%BC%E3%83%AB%20%23無料ツール&url=https%3A%2F%2Fappadaycreator.com%2Ffreelance-rate-calculator%2F" target="_blank" rel="noopener" aria-label="フリーランス単価計算ツールをXでシェア" style="background:#1DA1F2;color:white;padding:8px 16px;border-radius:8px;font-size:13px;text-decoration:none;font-weight:600;min-height:44px;display:inline-flex;align-items:center;">𝕏 シェア</a>
@@ -295,18 +416,280 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;margin:8px 0;font-size:12px;color:#92400e;">
             <strong>⚠️ 免責事項</strong>：本ツールの計算・診断結果はあくまで参考情報です。医療・法律・税務・投資等の専門的判断が必要な場合は、必ず資格を持つ専門家にご相談ください。本サービスの利用により生じた損害について、当サービスは一切の責任を負いません。
         </div>
-    </main>
+    
+<section aria-labelledby="faq-h" class="bg-white rounded-2xl shadow-md p-4 mb-4" style="max-width:740px;margin-left:auto;margin-right:auto">
+  
+<div style="background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0" id="tool-desc-box">
+  <h2 style="font-size:1.05rem;font-weight:800;color:#1e40af;margin:0 0 1rem">📋 このツールの詳細</h2>
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.8">「フリーランス単価計算ツール」は、数値を入力するだけで結果をすぐに確認できる無料の計算ツールです。</p>
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.8">専門知識がなくても直感的に操作できるシンプルな設計で、スマートフォンからもご利用いただけます。</p>
+  <p style="color:#374151;margin:0;line-height:1.8">計算結果は画面上でリアルタイムに表示され、条件を変えながら比較検討にも活用できます。</p>
+</div>
+<div style="background:#f0f7ff;border:2px solid #bfdbfe;border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0">
+  <h2 style="font-size:1.1rem;font-weight:800;color:#1e3a5f;margin:0 0 1rem;padding-bottom:.75rem;border-bottom:2px solid #bfdbfe">フリーランス単価計算ツール — 適正な時給・月額報酬を算出</h2>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">このツールでできること</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0 0 1rem">希望年収・実働日数・稼働時間・経費・社会保険料を入力することで、必要な時間単価と月額報酬の目安を計算します。「会社員年収との比較」や「消費税の納付義務判定」も確認できます。</p>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">フリーランスの年収と手取りの計算方法</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0 0 1rem">フリーランスの手取りは「売上 - 経費 - 社会保険料 - 所得税 - 住民税」で計算されます。年収500万円のフリーランスの実質手取りは約350〜370万円で、会社員の同年収より約30〜50万円少ない傾向があります。これを踏まえた上で会社員年収の1.3〜1.5倍の単価設定が必要です。</p>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">インボイス制度とフリーランスへの影響</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0">2023年10月開始のインボイス制度では、適格請求書（インボイス）を発行できない免税事業者（年収1,000万円以下）は取引先に消費税分の不利を与えることがあります。課税事業者への移行を検討する場合は、消費税の申告・納付が発生するため、税理士への相談が推奨されます。</p>
+</div>
+<!-- r16-related-tools -->
+<div style="background:#f8faff;border:1px solid #dbeafe;border-radius:12px;padding:1.25rem 1.5rem;margin:1.5rem 0">
+  <h3 style="font-size:.9375rem;font-weight:800;color:#1e3a5f;margin:0 0 .875rem">🔗 このツールと一緒によく使われるツール</h3>
+  <div style="display:grid;gap:.5rem">
+    <a href="/freelance-contract-checker/" style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:.625rem .875rem;border:1px solid #bfdbfe;text-decoration:none;color:#1f2937;font-size:.875rem;font-weight:600">🔗 フリーランス契約チェッカー<span style="color:#6b7280;font-size:.78rem;font-weight:400">— 契約内容の安全確認</span></a>
+    <a href="/tax-bracket-calculator/" style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:.625rem .875rem;border:1px solid #bfdbfe;text-decoration:none;color:#1f2937;font-size:.875rem;font-weight:600">🔗 税率計算ツール<span style="color:#6b7280;font-size:.78rem;font-weight:400">— 手取り額を正確に試算</span></a>
+    <a href="/accounting-software-advisor/" style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:.625rem .875rem;border:1px solid #bfdbfe;text-decoration:none;color:#1f2937;font-size:.875rem;font-weight:600">🔗 会計ソフト比較診断<span style="color:#6b7280;font-size:.78rem;font-weight:400">— 帳簿管理ツールを選ぶ</span></a>
+  </div>
+</div>
+<!-- r22-editorial -->
+<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:.75rem;padding:1.5rem;margin:1.5rem 0">
+  <h2 style="font-size:1.05rem;font-weight:800;color:#1e3a8a;margin:0 0 1rem;border-left:4px solid #2563eb;padding-left:.75rem">家計・資産管理の基礎データ（総務省・金融庁）</h2>
+  <p style="font-size:.88rem;color:#4b5563;margin:0 0 .75rem">総務省「家計調査」・金融庁データをもとに、日本の家計状況と資産形成の実態を整理しました。</p>
+  <table style="width:100%;border-collapse:collapse;font-size:.83rem">
+    <thead>
+      <tr style="background:#bfdbfe">
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">項目</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">データ</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bfdbfe;color:#1e3a8a">出典</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#eff6ff">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">二人以上世帯の月平均消費支出</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>約31.9万円（2023年平均）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">総務省「家計調査」2023年</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">勤労者世帯の平均貯蓄額</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>約1,279万円（中央値は370万円）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">金融広報中央委員会「家計の金融行動に関する調査」2023年</td>
+      </tr>
+      <tr style="background:#eff6ff">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">新NISAの年間投資上限</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>成長投資枠240万円＋つみたて枠120万円＝年間360万円</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">金融庁「新しいNISA」</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-weight:600;color:#1e3a8a">投資信託の平均信託報酬（インデックス型）</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe"><strong>0.1〜0.2%程度（近年の低コスト化が進む）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bfdbfe;font-size:.78rem;color:#6b7280">各運用会社のファンド一覧より</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.78rem;color:#6b7280;margin:.5rem 0 0">※ 記載データは各出典の公表時点の情報です。最新情報は各公的機関の公式サイトをご確認ください。</p>
+</div>
+<!-- r20-tool-links -->
+<div id="tool-disclaimer" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:.875rem">
+  <p style="font-weight:700;color:#374151;margin:0 0 .5rem">⚠️ 計算結果の活用にあたって</p>
+  <p style="color:#4b5563;margin:0 0 .5rem;line-height:1.75">計算結果は参考値です。入力値や前提条件によって結果が変わります。重要な判断の際は最新の公式情報をご確認ください。</p>
+  <ul style="margin:0;padding-left:1.25rem;color:#4b5563;line-height:1.9"><li><a href="https://www.caa.go.jp/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;font-size:.85rem">消費者庁「くらしの安心ガイド」</a></li></ul>
+</div>
+<h2 id="faq-h" style="font-size:1.05rem;font-weight:700;margin-bottom:12px;border-left:4px solid #4f46e5;padding-left:10px;">よくある質問</h2>
+  <dl style="line-height:1.8;">
+    <dt style="font-weight:600;margin-top:12px;">Q: この計算ツールはどんな場面で役立ちますか？</dt>
+    <dd style="margin-left:16px;color:#374151;">フリーランス単価簡単・無料計算に関する費用・数値を手軽に試算できます。複数パターンを試して比較検討にご活用ください。</dd>
+    <dt style="font-weight:600;margin-top:12px;">Q: 計算結果の精度はどの程度ですか？</dt>
+    <dd style="margin-left:16px;color:#374151;">一般的な基準値をもとにした目安です。実際の結果は個人の状況・条件により異なります。重要な意思決定の際は専門家にもご相談ください。</dd>
+    <dt style="font-weight:600;margin-top:12px;">Q: スマートフォンでも使えますか？</dt>
+    <dd style="margin-left:16px;color:#374151;">はい、PC・スマートフォン・タブレットすべてに対応しています。ブラウザから登録不要・完全無料でご利用いただけます。</dd>
+  </dl>
+</section>
+<!-- r28-tool-expand -->
+<section style="margin:2rem 0;padding:1.5rem;background:#f8fafc;border-radius:.75rem;border:1px solid #e2e8f0">
+<h2 style="font-size:1.1rem;font-weight:700;color:#1e293b;margin:0 0 .75rem">フリーランス単価計算ツールの詳しい使い方</h2>
+<p style="font-size:.9rem;line-height:1.8;color:#374151">フリーランスとして適正な時給・月額・プロジェクト単価を算出する無料計算ツールです。希望年収・稼働時間・経費・税負担・有休相当日数などを入力するだけで、クライアントに提示すべき最低単価と推奨単価を自動計算します。「安売りしすぎ」「高すぎて仕事が来ない」を防ぐ価格設定の根拠作りに活用できます。</p>
+<h3 style="font-size:.95rem;font-weight:700;color:#1e293b;margin:1rem 0 .5rem">このツールでできること</h3>
+<ul style="font-size:.88rem;line-height:2;color:#374151;padding-left:1.2rem">
+<li>希望手取り年収から逆算した必要請求単価の自動算出</li>
+<li>所得税・住民税・社会保険料（国保・年金）の概算控除</li>
+<li>稼働率（病欠・営業・スキルアップ時間）を考慮した実稼働時間計算</li>
+<li>時間単価・日当・月額・プロジェクト固定額への換算表示</li>
+</ul>
+<h3 style="font-size:.95rem;font-weight:700;color:#1e293b;margin:1rem 0 .5rem">活用シーン</h3>
+<ul style="font-size:.88rem;line-height:2;color:#374151;padding-left:1.2rem">
+<li>フリーランス独立前に最低限必要な単価を把握したいとき</li>
+<li>クラウドソーシングの提案額が適正かチェックしたいとき</li>
+<li>副業フリーランスとして副収入目標額から時給を逆算したいとき</li>
+</ul>
+<h3 style="font-size:.95rem;font-weight:700;color:#1e293b;margin:1rem 0 .5rem">よくある質問</h3>
+<div style="display:grid;gap:.75rem">
+<div style="padding:.75rem;background:#fff;border-radius:.5rem;border:1px solid #e2e8f0"><p style="font-size:.85rem;font-weight:700;color:#1e293b;margin:0 0 .25rem">Q. フリーランスは正社員より単価を高くしないといけないのはなぜですか？</p><p style="font-size:.83rem;color:#6b7280;margin:0">A. 正社員は社会保険・有給・交通費・設備費を会社が負担しますが、フリーランスはすべて自己負担です。本ツールではこれらを全て考慮した必要単価を算出します。</p></div>
+<div style="padding:.75rem;background:#fff;border-radius:.5rem;border:1px solid #e2e8f0"><p style="font-size:.85rem;font-weight:700;color:#1e293b;margin:0 0 .25rem">Q. 稼働率80%はどういう意味ですか？</p><p style="font-size:.83rem;color:#6b7280;margin:0">A. フリーランスの稼働率とは、「クライアント向け作業時間 ÷ 総労働時間」の割合です。営業活動・請求業務・スキルアップの時間は収入に直結しないため、残り20%として計算に含めます。</p></div>
+<div style="padding:.75rem;background:#fff;border-radius:.5rem;border:1px solid #e2e8f0"><p style="font-size:.85rem;font-weight:700;color:#1e293b;margin:0 0 .25rem">Q. 消費税はどのように扱えばよいですか？</p><p style="font-size:.83rem;color:#6b7280;margin:0">A. インボイス制度導入後は適格請求書発行事業者かどうかで扱いが変わります。本ツールでは税込・税抜の両パターンで単価を表示します。</p></div>
+</div>
+</section>
+</main>
 
     
 <script>
     const BTN_COLOR = '#0891B2';
     document.addEventListener('DOMContentLoaded', () => {
-      // Enterキーで計算
-      document.querySelectorAll('input').forEach(inp => {
+      document.querySelectorAll('input[type="number"], input[type="text"], select').forEach(inp => {
         inp.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
-        inp.addEventListener('input', () => { if (document.querySelectorAll('input[type="number"]').length === 1) calculate(); });
       });
+
+      // Range slider synchronization
+      const workDaysRange = document.getElementById('work-days');
+      const workDaysValue = document.getElementById('work-days-value');
+      const workHoursRange = document.getElementById('work-hours');
+      const workHoursValue = document.getElementById('work-hours-value');
+
+      if (workDaysRange) {
+        workDaysRange.addEventListener('input', (e) => {
+          workDaysValue.textContent = e.target.value + '日';
+        });
+      }
+
+      if (workHoursRange) {
+        workHoursRange.addEventListener('input', (e) => {
+          workHoursValue.textContent = e.target.value + '時間';
+        });
+      }
+
+      loadCustomPresets();
     });
+
+    function loadPreset(income) {
+      document.getElementById('annual-income').value = income;
+      document.getElementById('annual-income').focus();
+      calculate();
+    }
+
+    let rateChart = null;
+
+    function toggleDetails() {
+      const btn = event.target;
+      const section = document.getElementById('detail-section');
+      const isOpen = section.style.display !== 'none';
+      section.style.display = isOpen ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', !isOpen);
+    }
+
+    function toggleChart() {
+      const btn = event.target;
+      const container = document.getElementById('chart-container');
+      const isOpen = container.style.display !== 'none';
+      container.style.display = isOpen ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', !isOpen);
+      if (!isOpen && rateChart === null) {
+        setTimeout(() => renderChart(), 100);
+      }
+    }
+
+    function renderChart() {
+      const hourlyRate = parseFloat(document.getElementById('hourly-rate').textContent.replace(/,/g, '')) || 0;
+      const dailyRate = parseFloat(document.getElementById('daily-rate').textContent.replace(/,/g, '')) || 0;
+      const monthlyRate = parseFloat(document.getElementById('monthly-rate').textContent.replace(/,/g, '')) || 0;
+
+      const ctx = document.getElementById('rate-chart');
+      if (!ctx) return;
+
+      if (rateChart) {
+        rateChart.destroy();
+      }
+
+      rateChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['時間単価', '日額単価', '月額単価'],
+          datasets: [{
+            label: '単価（円）',
+            data: [hourlyRate, dailyRate, monthlyRate],
+            backgroundColor: ['#0891B2', '#06B6D4', '#14B8A6'],
+            borderColor: ['#0891B2', '#06B6D4', '14B8A6'],
+            borderWidth: 0,
+            borderRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return '¥' + context.parsed.y.toLocaleString('ja-JP');
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                callback: function(value) {
+                  return '¥' + value.toLocaleString('ja-JP');
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function printResults() {
+      window.print();
+    }
+
+    function copyResults() {
+      const hourlyRate = document.getElementById('hourly-rate').textContent;
+      const dailyRate = document.getElementById('daily-rate').textContent;
+      const monthlyRate = document.getElementById('monthly-rate').textContent;
+      const netIncome = document.getElementById('net-income').textContent;
+      const tip = document.getElementById('tip-text').textContent;
+
+      const text = `フリーランス単価計算結果
+時間単価: ¥${hourlyRate}/時間
+日額単価: ¥${dailyRate}/日
+月額単価: ¥${monthlyRate}/月
+手取り年収（概算）: ${netIncome}万円
+
+アドバイス: ${tip}`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert('計算結果をクリップボードにコピーしました！');
+      }).catch(() => {
+        alert('クリップボードへのコピーに失敗しました');
+      });
+    }
+
+    function exportToCSV() {
+      const annualIncome = document.getElementById('annual-income').value;
+      const workDays = document.getElementById('work-days').value;
+      const workHours = document.getElementById('work-hours').value;
+      const expenses = document.getElementById('expenses').value;
+      const taxRate = document.getElementById('tax-rate').value;
+      const hourlyRate = document.getElementById('hourly-rate').textContent.replace(/,/g, '');
+      const dailyRate = document.getElementById('daily-rate').textContent.replace(/,/g, '');
+      const monthlyRate = document.getElementById('monthly-rate').textContent.replace(/,/g, '');
+      const netIncome = document.getElementById('net-income').textContent;
+
+      const csv = `計算日時,${new Date().toLocaleString('ja-JP')}
+希望年収,${annualIncome}
+年間稼働日数,${workDays}
+1日の稼働時間,${workHours}
+年間経費,${expenses}
+税率,%,${taxRate}
+
+計算結果
+時間単価,円,${hourlyRate}
+日額単価,円,${dailyRate}
+月額単価,円,${monthlyRate}
+手取り年収（概算）,万円,${netIncome}`;
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      link.setAttribute('href', url);
+      link.setAttribute('download', `freelance-rate-${new Date().getTime()}.csv`);
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
 
     function calculate() {
       const annualIncome = parseFloat(document.getElementById('annual-income').value) || 0;
@@ -315,31 +698,64 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       const expenses = parseFloat(document.getElementById('expenses').value) || 0;
       const taxRate = parseFloat(document.getElementById('tax-rate').value) || 30;
 
+      const errorEl = document.getElementById('income-error');
+
+      // Enhanced validation
       if (annualIncome <= 0) {
-        alert('希望年収を入力してください');
+        errorEl.style.display = 'block';
+        errorEl.textContent = '希望年収を1,000,000円以上入力してください';
+        errorEl.setAttribute('role', 'alert');
+        document.getElementById('result').classList.remove('show');
         return;
       }
 
-      // 経費・税金を考慮した必要売上
+      if (workDays > 365) {
+        errorEl.style.display = 'block';
+        errorEl.textContent = '稼働日数は365日以下にしてください（実際の営業日ベース）';
+        errorEl.setAttribute('role', 'alert');
+        document.getElementById('result').classList.remove('show');
+        return;
+      }
+
+      if (workHours < 1 || workHours > 24) {
+        errorEl.style.display = 'block';
+        errorEl.textContent = '1日の稼働時間は1〜24時間で指定してください';
+        errorEl.setAttribute('role', 'alert');
+        document.getElementById('result').classList.remove('show');
+        return;
+      }
+
+      errorEl.style.display = 'none';
+
+      // 必要売上の計算（経費・税金を考慮）
       const taxMultiplier = 1 / (1 - taxRate / 100);
       const requiredRevenue = (annualIncome + expenses) * taxMultiplier;
 
-      // 各単価計算
+      // 稼働時間・日数の計算
       const totalHours = workDays * workHours;
-      const workMonths = workDays / (workDays / 12); // ≒12ヶ月
       const monthlyWorkDays = workDays / 12;
 
-      const hourlyRate = Math.ceil(requiredRevenue / totalHours / 100) * 100;
-      const dailyRate = Math.ceil(hourlyRate * workHours / 100) * 100;
-      const monthlyRate = Math.ceil(dailyRate * monthlyWorkDays / 1000) * 1000;
+      // 各単価を計算（時間単価を基準に統一）
+      const hourlyRateExact = requiredRevenue / totalHours;
+      const hourlyRate = Math.ceil(hourlyRateExact / 100) * 100;
+      const dailyRate = hourlyRate * workHours;
+      const monthlyRate = hourlyRate * monthlyWorkDays;
 
-      // 手取り年収（概算）
-      const netIncome = Math.round(annualIncome * (1 - taxRate / 100) / 10000);
+      // 実際に得られる手取り年収
+      const actualRevenue = hourlyRate * totalHours;
+      const taxAmount = actualRevenue - expenses - annualIncome;
+      const actualNetIncome = Math.round((actualRevenue - expenses - taxAmount) / 10000);
 
       document.getElementById('hourly-rate').textContent = hourlyRate.toLocaleString();
-      document.getElementById('daily-rate').textContent = dailyRate.toLocaleString();
-      document.getElementById('monthly-rate').textContent = monthlyRate.toLocaleString();
-      document.getElementById('net-income').textContent = netIncome.toLocaleString();
+      document.getElementById('daily-rate').textContent = Math.round(dailyRate).toLocaleString();
+      document.getElementById('monthly-rate').textContent = Math.round(monthlyRate).toLocaleString();
+      document.getElementById('net-income').textContent = Math.max(0, actualNetIncome).toLocaleString();
+
+      // 詳細分析情報を更新
+      document.getElementById('detail-total-hours').textContent = totalHours.toLocaleString();
+      document.getElementById('detail-monthly-days').textContent = Math.round(monthlyWorkDays);
+      document.getElementById('detail-required-revenue').textContent = Math.round(requiredRevenue).toLocaleString();
+      document.getElementById('detail-actual-net').textContent = Math.max(0, actualNetIncome * 10000).toLocaleString();
 
       // アドバイス
       let tip = '';
@@ -357,6 +773,117 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       document.getElementById('output').textContent = '';
       document.getElementById('detail').textContent = '';
       document.getElementById('result').classList.add('show');
+
+      // グラフをリセット
+      if (rateChart) {
+        rateChart.destroy();
+        rateChart = null;
+      }
+      document.getElementById('chart-container').style.display = 'none';
+
+      // 履歴に保存
+      saveToHistory(annualIncome, workDays, workHours, expenses, taxRate, hourlyRate, monthlyRate, actualNetIncome);
+    }
+
+    function saveToHistory(income, days, hours, expenses, tax, hourly, monthly, net) {
+      const history = JSON.parse(localStorage.getItem('freelance-history') || '[]');
+      history.unshift({
+        date: new Date().toLocaleString('ja-JP'),
+        income, days, hours, expenses, tax, hourly, monthly, net
+      });
+      if (history.length > 5) history.pop();
+      localStorage.setItem('freelance-history', JSON.stringify(history));
+    }
+
+    function generateShareMessage(hourlyRate) {
+      let message = '';
+      if (hourlyRate < 3000) {
+        message = `スキルアップを目指して！時間単価${Math.round(hourlyRate).toLocaleString()}円で計算しました`;
+      } else if (hourlyRate < 5000) {
+        message = `フリーランス標準単価を達成！時間単価${Math.round(hourlyRate).toLocaleString()}円は妥当です`;
+      } else if (hourlyRate < 8000) {
+        message = `プロフェッショナル水準！時間単価${Math.round(hourlyRate).toLocaleString()}円をキープしましょう`;
+      } else {
+        message = `エキスパート級！時間単価${Math.round(hourlyRate).toLocaleString()}円の実現を目指そう`;
+      }
+      return message + ' #フリーランス #単価計算 #副業';
+    }
+
+    function saveCustomPreset() {
+      const income = document.getElementById('annual-income').value;
+      const days = document.getElementById('work-days').value;
+      const hours = document.getElementById('work-hours').value;
+      const name = prompt('このプリセットに名前をつけてください（例：安定案件時）');
+
+      if (!name) return;
+
+      const presets = JSON.parse(localStorage.getItem('custom-presets') || '[]');
+      if (presets.length >= 5) {
+        alert('カスタムプリセットは最大5個まで保存できます');
+        return;
+      }
+
+      presets.push({ name, income, days, hours, created: new Date().toLocaleString('ja-JP') });
+      localStorage.setItem('custom-presets', JSON.stringify(presets));
+      alert(`「${name}」として保存しました！`);
+      loadCustomPresets();
+    }
+
+    function loadCustomPresets() {
+      const presets = JSON.parse(localStorage.getItem('custom-presets') || '[]');
+      if (presets.length === 0) return;
+
+      const container = document.querySelector('.quick-preset-btn').parentElement;
+      const existingCustom = container.querySelector('[data-custom-presets]');
+      if (existingCustom) existingCustom.remove();
+
+      if (presets.length > 0) {
+        const customDiv = document.createElement('div');
+        customDiv.setAttribute('data-custom-presets', 'true');
+        customDiv.style.display = 'grid';
+        customDiv.style.gridTemplateColumns = '1fr 1fr';
+        customDiv.style.gap = '8px';
+        customDiv.style.marginTop = '8px';
+        customDiv.style.paddingTop = '12px';
+        customDiv.style.borderTop = '1px solid #e2e8f0';
+
+        presets.forEach((p, idx) => {
+          const btn = document.createElement('button');
+          btn.className = 'quick-preset-btn';
+          btn.textContent = p.name;
+          btn.onclick = () => {
+            document.getElementById('annual-income').value = p.income;
+            document.getElementById('work-days').value = p.days;
+            document.getElementById('work-hours').value = p.hours;
+            calculate();
+          };
+          customDiv.appendChild(btn);
+        });
+
+        container.appendChild(customDiv);
+      }
+    }
+
+    function shareToTwitter() {
+      const hourlyRate = parseFloat(document.getElementById('hourly-rate').textContent.replace(/,/g, '')) || 0;
+      if (!hourlyRate) {
+        alert('先に計算を実行してください');
+        return;
+      }
+      const message = generateShareMessage(hourlyRate);
+      const url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(message) + '&url=https%3A%2F%2Fappadaycreator.com%2Ffreelance-rate-calculator%2F';
+      window.open(url, '_blank', 'width=550,height=420');
+    }
+
+    function shareToLine() {
+      const hourlyRate = parseFloat(document.getElementById('hourly-rate').textContent.replace(/,/g, '')) || 0;
+      if (!hourlyRate) {
+        alert('先に計算を実行してください');
+        return;
+      }
+      const message = generateShareMessage(hourlyRate).replace(/ #[\w]+/g, '');
+      const url = 'https://line.me/R/msg/text/?' + encodeURIComponent(message + '\nhttps://appadaycreator.com/freelance-rate-calculator/');
+      window.open(url, '_blank');
     }
     </script>
 
@@ -388,13 +915,79 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
     <a href="https://px.a8.net/svt/ejp?a8mat=4B3WJ6+FIIWRU+1IRY+1TKOKI" rel="nofollow noopener noreferrer" target="_blank" style="display:inline-block;padding:5px 12px;background:#fff;border:1px solid #d1d5db;border-radius:20px;font-size:12px;color:#4b5563;text-decoration:none;white-space:nowrap;">ファイナンシャルアカデミー「お金の教養講座」</a><img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4B3WJ6+FIIWRU+1IRY+1TKOKI" alt="">
   </div>
 </div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px;margin:16px auto;max-width:680px;text-align:center;">
+  <p style="font-size:12px;color:#6b7280;margin:0 0 8px;">このツールを業務に活用したい・システム化したい方へ</p>
+  <a href="/tb-corp/?utm_source=appadaycreator&utm_medium=tool_related&utm_campaign=b2b_cta" onclick="if(window.gtag)gtag('event','b2b_cta_click',{source_page:location.pathname,cta_position:'tool_related',tool_category:location.pathname.split('/').filter(Boolean)[0]||'other',destination:'tech-and-brace'})"
+     style="display:inline-block;background:#059669;color:#fff;padding:10px 24px;border-radius:7px;font-weight:700;text-decoration:none;font-size:13px;">
+    Tech&amp;Brace に相談する →
+  </a>
+  <p style="font-size:11px;color:#9ca3af;margin:6px 0 0;">Web制作・AI/LLM導入・DXコンサルティング（株式会社Tech&amp;Brace）</p>
+</div>
 <footer style="text-align:center;padding:20px;color:white;font-size:12px;background:#374151;margin-top:8px;">
         <p><a href="https://appadaycreator.com/" style="color:white;">AppADayCreator</a>
         | <a href="privacy-policy.html" style="color:white;">プライバシーポリシー</a>
         | <a href="terms.html" style="color:white;">利用規約</a>
         | <a href="contact.html" style="color:white;">お問い合わせ</a></p>
         <p style="margin-top:4px;font-size:11px;opacity:0.6;">最終更新: 2026年5月 | 本サービスはアフィリエイト広告を掲載しています（A8.net/Amazon）</p>
-        <p style="margin-top:6px;">© 2026 AppADayCreator. All services are free.</p>
+        <p style="margin-top:6px;">© 2026 AppADayCreator. All services are free. | <a href="/tb-corp/?utm_source=appadaycreator&utm_medium=footer&utm_campaign=b2b_cta" onclick="gtag('event','b2b_cta_click',{source_page:location.pathname,cta_position:'footer',tool_category:'portal',destination:'tech-and-brace'})" style="color:white;opacity:0.75;font-size:11px;">Web制作・DX相談 → Tech&amp;Brace</a></p>
     </footer>
+<div style="text-align:center;padding:10px 16px 14px;background:#eef2ff;border-top:2px solid #c7d2fe;margin-top:8px">
+<a href="/blog/" style="color:#4f46e5;font-size:.85rem;font-weight:700">📖 マネー・育児・キャリアのコラムを読む →</a>
+</div>
+<div style="background:#eef2ff;border-left:4px solid #4f46e5;border-radius:.5rem;padding:1rem 1.25rem;margin:1.5rem auto;max-width:760px;font-size:.875rem">
+<p style="margin:0 0 .5rem;font-weight:700;color:#3730a3">📖 お役立ちコラム</p>
+<ul style="margin:0;padding-left:1.25rem;color:#4f46e5;line-height:2">
+<li><a href="/blog/stock-investment-beginner/" style="color:#4f46e5">株式投資の始め方【初心者完全ガイド】</a></li>
+<li><a href="/blog/nisa-comparison/" style="color:#4f46e5">新NISA vs iDeCo 徹底比較</a></li>
+<li><a href="/blog/investment-risk-management/" style="color:#4f46e5">投資のリスク管理入門</a></li>
+</ul>
+</div>
+<!-- r28-tool-expand-2 -->
+<section style="margin:2rem 0;padding:1.5rem;background:#f0fdf4;border-radius:.75rem;border:1px solid #bbf7d0">
+<h2 style="font-size:1.05rem;font-weight:700;color:#14532d;margin:0 0 .75rem">フリーランス単価交渉の実践術と収入安定化戦略</h2>
+<p style="font-size:.9rem;line-height:1.8;color:#374151">フリーランスが単価を上げるためには「スキルの希少性」と「成果の可視化」が不可欠です。同じWebデザイナーでも「LP制作」より「CV率改善のためのランディングページ最適化」という具体的な価値訴求をするだけで提示できる単価が大きく変わります。単価交渉のタイミングは「契約更新時」「実績・成果が出たとき」「新しいスキルを習得したとき」の3つが効果的です。また収入の安定化には「固定クライアント3社以上・単発案件2〜3件の組み合わせ」が理想的で、1社依存は契約打ち切りリスクが高く危険です。請求業務・確定申告・国民健康保険・国民年金の事務負担を減らすために、会計ソフト（freee・マネーフォワード）の活用と年1回の税理士相談は費用対効果が高い投資です。</p>
+<h3 style="font-size:.9rem;font-weight:700;color:#14532d;margin:1rem 0 .5rem">実践のコツ・ポイント</h3>
+<ul style="font-size:.87rem;line-height:2;color:#374151;padding-left:1.2rem">
+<li>単価交渉は「いくら欲しいか」より「どんな価値を提供できるか」から入る</li>
+<li>ポートフォリオには必ず数値成果（CV率○%改善・工数○時間削減等）を含める</li>
+<li>クラウドワークスより直接クライアント開拓の方が単価が3〜5倍高い</li>
+<li>年収1,000万円超を目指すなら「請負」より「月次顧問契約」モデルを目指す</li>
+<li>収入保障保険（フリーランス向け）への加入で病気・怪我時のリスク対策を</li>
+</ul>
+</section>
+<!-- r28-tool-expand-3 -->
+<section style="margin:2rem 0;padding:1.5rem;background:#fff7ed;border-radius:.75rem;border:1px solid #fed7aa">
+<h2 style="font-size:1.05rem;font-weight:700;color:#7c2d12;margin:0 0 .75rem">フリーランスの税務・保険・老後資金対策の基礎知識</h2>
+<p style="font-size:.9rem;line-height:1.8;color:#374151">フリーランスとして活動する際に見落としがちな「見えないコスト」があります。正社員時代は会社が負担していた社会保険料（健康保険・厚生年金）の半分をフリーランスでは全額自己負担します。国民健康保険と国民年金を合わせると月4〜8万円程度になる場合があります（収入による）。老後資金対策として「iDeCo（個人型確定拠出年金）」「小規模企業共済」「NISA」の3つを早期に活用することが重要で、特に小規模企業共済は掛け金が全額所得控除になる節税効果も高いです。確定申告は青色申告（65万円控除）を選択し、会計ソフトで日常的に帳簿をつけておくことが、申告漏れ・税務調査リスクの軽減につながります。</p>
+</section>
+<!-- r28-tool-expand-4 -->
+<section style="margin:2rem 0;padding:1.5rem;background:#f8fafc;border-radius:.75rem;border:1px solid #e2e8f0">
+<h2 style="font-size:1.0rem;font-weight:700;color:#1e293b;margin:0 0 .75rem">あわせて使いたい関連ツール</h2>
+<p style="font-size:.88rem;line-height:1.7;color:#374151;margin:0 0 1rem">適正単価の把握はフリーランス経営の第一歩です。収入管理・税金計算・交渉戦略の3つを合わせて管理することで、フリーランスとしての安定した事業基盤を築けます。</p>
+<div style="display:grid;gap:.6rem">
+<a href="/side-hustle-income-tracker/" style="display:flex;align-items:center;gap:.75rem;padding:.75rem;background:#fff;border-radius:.5rem;border:1px solid #e2e8f0;text-decoration:none">
+<div><p style="font-size:.85rem;font-weight:700;color:#1e293b;margin:0">副業・サイドビジネス収益トラッカー</p><p style="font-size:.8rem;color:#6b7280;margin:0">フリーランス収入の月次管理と目標達成確認</p></div></a>
+<a href="/freelance-tax-advisor/" style="display:flex;align-items:center;gap:.75rem;padding:.75rem;background:#fff;border-radius:.5rem;border:1px solid #e2e8f0;text-decoration:none">
+<div><p style="font-size:.85rem;font-weight:700;color:#1e293b;margin:0">フリーランス税金計算</p><p style="font-size:.8rem;color:#6b7280;margin:0">確定申告・経費計上・節税対策を計算</p></div></a>
+<a href="/salary-negotiation-advisor/" style="display:flex;align-items:center;gap:.75rem;padding:.75rem;background:#fff;border-radius:.5rem;border:1px solid #e2e8f0;text-decoration:none">
+<div><p style="font-size:.85rem;font-weight:700;color:#1e293b;margin:0">給与交渉シミュレーター</p><p style="font-size:.8rem;color:#6b7280;margin:0">クライアントへの単価交渉に活用</p></div></a>
+</div>
+</section>
+<!-- r28-tool-expand-5 -->
+<section style="margin:2rem 0;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:.75rem;border:1px solid #e2e8f0">
+<h2 style="font-size:.95rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">ご利用にあたって</h2>
+<p style="font-size:.88rem;line-height:1.8;color:#374151;margin:0">本ツールの計算結果は一般的な目安であり、実際の適正単価は専門分野・スキルレベル・実績・クライアントの予算などによって大きく変動します。単価設定は市場調査・競合調査・自身の価値提案の明確化と合わせて行うことをおすすめします。フリーランスとして長期的に安定した事業を継続するためには、単価設定だけでなく営業活動・スキルアップ・財務管理（税金・保険）の全方位的な取り組みが必要です。本ツールが皆様のフリーランスとしての持続可能な事業運営の一助となれば幸いです。</p>
+</section>
+<!-- r17-mobile-ux -->
+<a href="#top" id="back-to-top" aria-label="ページトップへ戻る" style="display:none;position:fixed;bottom:24px;right:20px;background:#4f46e5;color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:1.4rem;line-height:48px;text-align:center;text-decoration:none;box-shadow:0 4px 12px rgba(79,70,229,.4);z-index:9000;cursor:pointer" title="ページトップへ">↑</a>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if(!btn) return;
+  window.addEventListener('scroll', function(){
+    btn.style.display = window.scrollY > 400 ? 'block' : 'none';
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>
