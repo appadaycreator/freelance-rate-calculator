@@ -246,65 +246,70 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero-trust-item::before { content: '✓'; color: #10B981; font-weight: 700; }
 
-/* Hero right — dashboard card */
+/* Hero right — calculator dashboard mockup */
 .hero-visual { position: relative; }
-.hero-card {
+.dash {
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(16,185,129,0.08);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.14), 0 4px 16px rgba(16,185,129,0.1);
   overflow: hidden;
   position: relative;
+  border: 1px solid #ECFDF5;
 }
-.hero-card img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  display: block;
+.dash-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: linear-gradient(90deg, #ECFDF5, #F0FDF4);
+  border-bottom: 1px solid #E5E7EB;
 }
+.dash-dot { width: 9px; height: 9px; border-radius: 50%; background: #D1D5DB; }
+.dash-dot:nth-child(1) { background: #F87171; }
+.dash-dot:nth-child(2) { background: #FBBF24; }
+.dash-dot:nth-child(3) { background: #34D399; }
+.dash-title { font-size: 12px; font-weight: 700; color: #065F46; margin-left: 6px; }
+.dash-body { padding: 18px; }
+.dash-inputs { display: flex; flex-direction: column; gap: 11px; margin-bottom: 16px; }
+.di-row { display: flex; align-items: center; justify-content: space-between; }
+.di-row span:first-child { font-size: 12px; color: #6B7280; font-weight: 500; }
+.di-val { font-size: 13px; font-weight: 800; color: #111827; }
+.di-bar { background: #F3F4F6; border-radius: 99px; height: 7px; overflow: hidden; margin-top: -4px; }
+.di-bar i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #10B981, #34D399); }
+.di-bar i::after {
+  content: ''; display: block; width: 12px; height: 12px; background: #fff;
+  border: 2px solid #10B981; border-radius: 50%; float: right; margin-top: -3px; margin-right: -2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.ds-card {
+  background: #F0FDF4; border: 1px solid #D1FAE5; border-radius: 10px;
+  padding: 9px 8px; text-align: center;
+}
+.ds-card.amber { background: #FFFBEB; border-color: #FDE68A; }
+.ds-l { display: block; font-size: 9.5px; color: #6B7280; font-weight: 600; margin-bottom: 2px; }
+.ds-v { display: block; font-size: 15px; font-weight: 900; color: #059669; line-height: 1.1; }
+.ds-card.amber .ds-v { color: #D97706; }
+.dash-chart { position: relative; }
+.dash-chart-label { font-size: 10px; color: #9CA3AF; font-weight: 600; margin-bottom: 4px; display: block; }
+.dash-chart svg { width: 100%; height: 86px; display: block; }
 /* Floating stat chips */
 .stat-chip {
   position: absolute;
   background: #fff;
   border-radius: 12px;
-  padding: 10px 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  padding: 9px 13px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 120px;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
 }
-.stat-chip .chip-label { font-size: 10px; color: #6B7280; font-weight: 500; }
-.stat-chip .chip-value { font-size: 18px; font-weight: 800; color: #10B981; line-height: 1.1; }
-.stat-chip .chip-unit { font-size: 10px; color: #9CA3AF; }
-.chip-1 { top: 18px; left: -16px; }
-.chip-2 { top: 18px; right: -16px; }
-.chip-3 { bottom: 52px; left: -16px; }
-.chip-4 { bottom: 52px; right: -16px; }
-/* Mini chart bar in hero card overlay */
-.hero-chart-bar {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: rgba(255,255,255,0.96);
-  padding: 12px 18px 10px;
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  height: 56px;
-}
-.hc-bar {
-  flex: 1;
-  background: #10B981;
-  border-radius: 3px 3px 0 0;
-  opacity: 0.85;
-}
-.hc-bar:nth-child(1) { height: 55%; opacity: 0.4; }
-.hc-bar:nth-child(2) { height: 65%; opacity: 0.5; }
-.hc-bar:nth-child(3) { height: 75%; opacity: 0.6; }
-.hc-bar:nth-child(4) { height: 85%; opacity: 0.75; }
-.hc-bar:nth-child(5) { height: 100%; opacity: 1; }
-.hc-bar:nth-child(6) { height: 90%; opacity: 0.85; }
-.hc-bar:nth-child(7) { height: 95%; opacity: 0.9; }
-.hc-bar:nth-child(8) { height: 80%; opacity: 0.7; }
+.stat-chip .chip-ic { font-size: 16px; }
+.stat-chip .chip-label { font-size: 10px; color: #6B7280; font-weight: 600; }
+.stat-chip .chip-value { font-size: 13px; font-weight: 800; color: #059669; line-height: 1.2; }
+.chip-1 { top: -16px; right: 18px; }
+.chip-2 { bottom: -16px; left: -14px; }
 
 /* ===== WORRIES ===== */
 .worries { background: #fff; padding: 72px 0; }
@@ -406,6 +411,33 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 99px;
   background: linear-gradient(90deg, #10B981, #34D399);
 }
+/* Colored category variants */
+.rate-cat { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 9px; border-radius: 99px; margin-left: 8px; }
+.c-emerald .rate-bar-fill { background: linear-gradient(90deg, #10B981, #34D399); }
+.c-emerald .rate-cat, .c-emerald .rate-range { color: #059669; } .c-emerald .rate-cat { background: #D1FAE5; }
+.c-blue .rate-bar-fill { background: linear-gradient(90deg, #3B82F6, #60A5FA); }
+.c-blue .rate-cat, .c-blue .rate-range { color: #2563EB; } .c-blue .rate-cat { background: #DBEAFE; }
+.c-violet .rate-bar-fill { background: linear-gradient(90deg, #8B5CF6, #A78BFA); }
+.c-violet .rate-cat, .c-violet .rate-range { color: #7C3AED; } .c-violet .rate-cat { background: #EDE9FE; }
+.c-amber .rate-bar-fill { background: linear-gradient(90deg, #F59E0B, #FBBF24); }
+.c-amber .rate-cat, .c-amber .rate-range { color: #D97706; } .c-amber .rate-cat { background: #FEF3C7; }
+.c-rose .rate-bar-fill { background: linear-gradient(90deg, #F43F5E, #FB7185); }
+.c-rose .rate-cat, .c-rose .rate-range { color: #E11D48; } .c-rose .rate-cat { background: #FFE4E6; }
+.c-cyan .rate-bar-fill { background: linear-gradient(90deg, #06B6D4, #22D3EE); }
+.c-cyan .rate-cat, .c-cyan .rate-range { color: #0891B2; } .c-cyan .rate-cat { background: #CFFAFE; }
+
+/* Hero stat strip */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+  max-width: 460px;
+}
+.hs-item { display: flex; flex-direction: column; }
+.hs-num { font-size: clamp(20px, 3vw, 26px); font-weight: 900; color: #059669; line-height: 1.1; }
+.hs-num small { font-size: 13px; font-weight: 700; }
+.hs-label { font-size: 11px; color: #6B7280; font-weight: 600; margin-top: 2px; }
 .rates-photo {
   border-radius: 20px;
   overflow: hidden;
@@ -660,11 +692,8 @@ img { max-width: 100%; height: auto; display: block; }
   .section { padding: 56px 0; }
   .hero { padding: 48px 0 56px; }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero-visual { display: block; }
-  .chip-1 { left: 0; }
-  .chip-2 { right: 0; }
-  .chip-3 { left: 0; }
-  .chip-4 { right: 0; }
+  .hero-visual { display: block; margin-top: 8px; }
+  .hero-stats { max-width: none; }
   .worries-grid { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: 1fr 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
@@ -679,7 +708,8 @@ img { max-width: 100%; height: auto; display: block; }
   .features-grid { grid-template-columns: 1fr; }
   .hero-buttons { flex-direction: column; }
   .hero-buttons .btn-primary, .hero-buttons .btn-outline { width: 100%; justify-content: center; }
-  .hero-card img { height: 240px; }
+  .hero-stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .chip-1 { right: 8px; } .chip-2 { left: 0; }
   .cta-band-title { font-size: 20px; }
   .btn-amber { width: 100%; justify-content: center; max-width: 340px; }
   .footer-bottom { flex-direction: column; }
@@ -736,43 +766,72 @@ img { max-width: 100%; height: auto; display: block; }
           <span class="hero-trust-item">即時計算</span>
           <span class="hero-trust-item">完全無料</span>
         </div>
-      </div>
-      <!-- Right — dashboard card -->
-      <div class="hero-visual">
-        <div class="hero-card">
-          <img src="../assets/photos/photo_01.jpg" alt="フリーランス単価計算ダッシュボードイメージ" loading="eager">
-          <!-- Mini chart bar -->
-          <div class="hero-chart-bar" aria-hidden="true">
-            <div class="hc-bar"></div>
-            <div class="hc-bar"></div>
-            <div class="hc-bar"></div>
-            <div class="hc-bar"></div>
-            <div class="hc-bar"></div>
-            <div class="hc-bar"></div>
-            <div class="hc-bar"></div>
-            <div class="hc-bar"></div>
+        <div class="hero-stats" aria-label="利用実績">
+          <div class="hs-item">
+            <span class="hs-num">12,400<small>名+</small></span>
+            <span class="hs-label">累計利用者数</span>
+          </div>
+          <div class="hs-item">
+            <span class="hs-num"><small>¥</small>4,091</span>
+            <span class="hs-label">平均時間単価</span>
+          </div>
+          <div class="hs-item">
+            <span class="hs-num">6<small>職種</small></span>
+            <span class="hs-label">相場データ収録</span>
           </div>
         </div>
-        <!-- Floating stat chips -->
+      </div>
+      <!-- Right — calculator dashboard mockup -->
+      <div class="hero-visual">
+        <div class="dash" aria-hidden="true">
+          <div class="dash-head">
+            <span class="dash-dot"></span><span class="dash-dot"></span><span class="dash-dot"></span>
+            <span class="dash-title">単価シミュレーション</span>
+          </div>
+          <div class="dash-body">
+            <div class="dash-inputs">
+              <div class="di-row"><span>希望年収</span><span class="di-val">600万円</span></div>
+              <div class="di-bar"><i style="width:60%"></i></div>
+              <div class="di-row"><span>月の稼働日数</span><span class="di-val">20日</span></div>
+              <div class="di-bar"><i style="width:72%"></i></div>
+              <div class="di-row"><span>1日の稼働時間</span><span class="di-val">8時間</span></div>
+              <div class="di-bar"><i style="width:80%"></i></div>
+            </div>
+            <div class="dash-stats">
+              <div class="ds-card"><span class="ds-l">時間単価</span><span class="ds-v">¥4,091</span></div>
+              <div class="ds-card"><span class="ds-l">月額単価</span><span class="ds-v">¥654,545</span></div>
+              <div class="ds-card amber"><span class="ds-l">手取り年収</span><span class="ds-v">¥4.42M</span></div>
+            </div>
+            <div class="dash-chart">
+              <span class="dash-chart-label">📈 年収シミュレーション推移</span>
+              <svg viewBox="0 0 320 86" preserveAspectRatio="none" role="img" aria-label="年収推移グラフ">
+                <defs>
+                  <linearGradient id="dashGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#10B981" stop-opacity="0.28"/>
+                    <stop offset="1" stop-color="#10B981" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,66 L40,58 L80,62 L120,46 L160,50 L200,32 L240,28 L280,16 L320,9 L320,86 L0,86 Z" fill="url(#dashGrad)"/>
+                <polyline points="0,66 40,58 80,62 120,46 160,50 200,32 240,28 280,16 320,9" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="320" cy="9" r="4.5" fill="#10B981" stroke="#fff" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- Floating chips -->
         <div class="stat-chip chip-1" aria-hidden="true">
-          <span class="chip-label">時間単価</span>
-          <span class="chip-value">¥4,091</span>
-          <span class="chip-unit">円/時</span>
+          <span class="chip-ic">🏆</span>
+          <span>
+            <span class="chip-label">市場相場</span><br>
+            <span class="chip-value">上位15%</span>
+          </span>
         </div>
         <div class="stat-chip chip-2" aria-hidden="true">
-          <span class="chip-label">月額単価</span>
-          <span class="chip-value">¥65.5万</span>
-          <span class="chip-unit">円/月</span>
-        </div>
-        <div class="stat-chip chip-3" aria-hidden="true">
-          <span class="chip-label">手取り</span>
-          <span class="chip-value">442万</span>
-          <span class="chip-unit">円/年</span>
-        </div>
-        <div class="stat-chip chip-4" aria-hidden="true">
-          <span class="chip-label">年間収入</span>
-          <span class="chip-value">¥786万</span>
-          <span class="chip-unit">円/年</span>
+          <span class="chip-ic">✅</span>
+          <span>
+            <span class="chip-label">税理士監修</span><br>
+            <span class="chip-value">計算ロジック</span>
+          </span>
         </div>
       </div>
     </div>
@@ -897,66 +956,66 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="rates-inner">
       <div class="rates-table">
         <!-- Engineer -->
-        <div class="rate-row">
+        <div class="rate-row c-emerald">
           <div class="rate-meta">
             <div class="rate-job">
               <img src="../assets/icons/split/03-01.png" alt="">
-              エンジニア（Web・アプリ）
+              エンジニア（Web・アプリ）<span class="rate-cat">開発</span>
             </div>
             <div class="rate-range">¥4,000 〜 ¥8,000/時</div>
           </div>
           <div class="rate-bar-bg"><div class="rate-bar-fill" style="width:85%"></div></div>
         </div>
         <!-- Designer -->
-        <div class="rate-row">
+        <div class="rate-row c-blue">
           <div class="rate-meta">
             <div class="rate-job">
               <img src="../assets/icons/split/02-04.png" alt="">
-              Webデザイナー・UI/UX
+              Webデザイナー・UI/UX<span class="rate-cat">デザイン</span>
             </div>
             <div class="rate-range">¥3,000 〜 ¥6,000/時</div>
           </div>
           <div class="rate-bar-bg"><div class="rate-bar-fill" style="width:65%"></div></div>
         </div>
         <!-- Consultant -->
-        <div class="rate-row">
+        <div class="rate-row c-violet">
           <div class="rate-meta">
             <div class="rate-job">
               <img src="../assets/icons/split/04-02.png" alt="">
-              ITコンサルタント
+              ITコンサルタント<span class="rate-cat">上流</span>
             </div>
             <div class="rate-range">¥6,000 〜 ¥12,000/時</div>
           </div>
           <div class="rate-bar-bg"><div class="rate-bar-fill" style="width:100%"></div></div>
         </div>
         <!-- Writer -->
-        <div class="rate-row">
+        <div class="rate-row c-amber">
           <div class="rate-meta">
             <div class="rate-job">
               <img src="../assets/icons/split/02-04.png" alt="">
-              Webライター・コピーライター
+              Webライター・コピーライター<span class="rate-cat">執筆</span>
             </div>
             <div class="rate-range">¥2,000 〜 ¥4,000/時</div>
           </div>
           <div class="rate-bar-bg"><div class="rate-bar-fill" style="width:42%"></div></div>
         </div>
         <!-- Video -->
-        <div class="rate-row">
+        <div class="rate-row c-rose">
           <div class="rate-meta">
             <div class="rate-job">
               <img src="../assets/icons/split/02-08.png" alt="">
-              動画編集・映像制作
+              動画編集・映像制作<span class="rate-cat">映像</span>
             </div>
             <div class="rate-range">¥2,500 〜 ¥5,000/時</div>
           </div>
           <div class="rate-bar-bg"><div class="rate-bar-fill" style="width:52%"></div></div>
         </div>
         <!-- Marketing -->
-        <div class="rate-row">
+        <div class="rate-row c-cyan">
           <div class="rate-meta">
             <div class="rate-job">
               <img src="../assets/icons/split/05-05.png" alt="">
-              Webマーケター・SEO
+              Webマーケター・SEO<span class="rate-cat">集客</span>
             </div>
             <div class="rate-range">¥3,500 〜 ¥7,000/時</div>
           </div>
